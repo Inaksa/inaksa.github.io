@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex G. Maggio &mdash; CV</title>
+    <style>
+        /* === Reset & Base === */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+            font-size: 11pt;
+            line-height: 1.45;
+            color: #1a1a1a;
+            /* max-width: 8.5in; */
+            /* margin: 0 auto; */
+            margin: 1in auto;
+            padding: 0.7in 0.9in;
+            background: #fff;
+        }
+
+        a { color: #1a1a1a; text-decoration: underline; }
+
+        /* === Header === */
+        .header {
+            text-align: center;
+            margin-bottom: 18pt;
+        }
+        .header h1 {
+            font-size: 22pt;
+            font-weight: bold;
+            letter-spacing: 1pt;
+            text-transform: uppercase;
+            margin-bottom: 6pt;
+        }
+        .header .contact {
+            font-size: 10pt;
+            color: #333;
+        }
+        .header .contact span { white-space: nowrap; }
+        .header .contact .sep { margin: 0 6pt; color: #999; }
+
+        /* === Section === */
+        .section { margin-bottom: 16pt; }
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2pt;
+            border-bottom: 1.2pt solid #1a1a1a;
+            margin-bottom: 8pt;
+            padding-bottom: 2pt;
+        }
+
+        /* === Entry (Experience, Education, etc.) === */
+        .entry { margin-bottom: 10pt; }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1pt;
+        }
+        .entry-header .left { font-weight: bold; font-size: 11pt; }
+        .entry-header .right { font-style: italic; font-size: 10pt; color: #444; text-align: right; white-space: nowrap; }
+        .entry-sub {
+            font-size: 10pt;
+            font-style: italic;
+            color: #444;
+            margin-bottom: 3pt;
+        }
+        .entry-desc {
+            font-size: 10.5pt;
+            margin-bottom: 3pt;
+        }
+        .entry ul {
+            list-style: none;
+            padding-left: 14pt;
+            margin-top: 2pt;
+        }
+        .entry ul li {
+            position: relative;
+            padding-left: 10pt;
+            margin-bottom: 2pt;
+            font-size: 10.5pt;
+        }
+        .entry ul li::before {
+            content: "\2014";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* === Skills === */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4pt 24pt;
+        }
+        .skill-category h3 {
+            font-size: 10.5pt;
+            font-weight: bold;
+            margin-bottom: 2pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+        }
+        .skill-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .skill-category ul li {
+            font-size: 10pt;
+            margin-bottom: 1pt;
+        }
+
+        /* === Projects === */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6pt 24pt;
+        }
+        .project-card {
+            border: none;
+            page-break-inside: avoid;
+        }
+        .project-card h3 {
+            font-size: 10.5pt;
+            font-weight: bold;
+        }
+        .project-card .project-meta {
+            font-size: 9.5pt;
+            font-style: italic;
+            color: #444;
+            margin-bottom: 2pt;
+        }
+        .project-card ul {
+            list-style: none;
+            padding-left: 10pt;
+        }
+        .project-card ul li {
+            font-size: 9.5pt;
+            margin-bottom: 1pt;
+            position: relative;
+            padding-left: 8pt;
+        }
+        .project-card ul li::before {
+            content: "\2014";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .project-desc {
+            font-size: 9.5pt;
+        }
+        .project-link {
+            font-size: 9.5pt;
+        }
+        .project-tech {
+            font-size: 9pt;
+            color: #555;
+            margin-top: 2pt;
+        }
+
+        /* === Certifications === */
+        .cert-list {
+            list-style: none;
+            padding-left: 14pt;
+        }
+        .cert-list li {
+            font-size: 10pt;
+            margin-bottom: 2pt;
+            position: relative;
+            padding-left: 10pt;
+        }
+        .cert-list li::before {
+            content: "\2014";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* === Languages === */
+        .lang-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10.5pt;
+            margin-bottom: 2pt;
+        }
+        .lang-row .lang-level { font-style: italic; color: #444; }
+
+        /* === Print === */
+        @media print {
+            body { padding: 0; max-width: none; font-size: 10.5pt; }
+            a { text-decoration: none; }
+            .section { page-break-inside: avoid; }
+            .entry { page-break-inside: avoid; }
+            .project-card { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <div class="header">
+        <h1>Alex G. Maggio</h1>
+        <div class="contact">
+            <span>Belgrano, Buenos Aires, Argentina</span>
+            <span class="sep">&middot;</span>
+            <span><a href="mailto:alexgerman@gmail.com">alexgerman@gmail.com</a></span>
+            <span class="sep">&middot;</span>
+            <span>+54 911 5468-2539</span>
+            <span class="sep">&middot;</span>
+            <span><a href="https://www.linkedin.com/in/alexmaggio/">linkedin.com/in/alexmaggio</a></span>
+        </div>
+    </div>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <div class="section">
+        <div class="section-title">Experience</div>
+
+        <!-- American Express -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">American Express</span>
+                <span class="right">Feb 2026 &ndash; Present</span>
+            </div>
+            <div class="entry-sub">iOS Developer &bull; Contract &bull; Argentina (Remote)</div>
+            <div class="entry-desc">Senior iOS Engineer maintaining and implementing functionalities related to hotel reservation within the Amex Travel application.</div>
+            <ul>
+                <li>Key technologies: iOS, Swift, UIKit, RESTful Web Services, Localization</li>
+            </ul>
+        </div>
+
+        <!-- Venmo -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Venmo</span>
+                <span class="right">Aug 2025 &ndash; Feb 2026</span>
+            </div>
+            <div class="entry-sub">iOS Developer &bull; Contract &bull; Argentina (Remote)</div>
+            <div class="entry-desc">Senior iOS Engineer building and evolving mobile experiences used by millions of users, combining hands-on development with technical leadership across architecture, feature delivery, and engineering quality.</div>
+            <ul>
+                <li>Built and evolved high-impact iOS features for a product used by millions of users</li>
+                <li>Key contributor to P2P Cross-Border and third-party partner integrations</li>
+                <li>Partnered closely with product, design, QA, and engineering stakeholders</li>
+            </ul>
+        </div>
+
+        <!-- Harley-Davidson -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Harley-Davidson</span>
+                <span class="right">Mar 2025 &ndash; Jul 2025</span>
+            </div>
+            <div class="entry-sub">Mobile Engineer &bull; Contract &bull; Argentina (Remote)</div>
+            <div class="entry-desc">Engineered a mobile solution for tracking motorcycle rides, ensuring data persistence both locally and externally.</div>
+            <ul>
+                <li>Designed a Bluetooth communication protocol to connect the application with motorcycles for real-time data updates</li>
+                <li>Worked collaboratively with teams to refine application features and improve user engagement</li>
+            </ul>
+        </div>
+
+        <!-- Conexa.ai -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Conexa.ai (Clip)</span>
+                <span class="right">Jan 2024 &ndash; Dec 2024</span>
+            </div>
+            <div class="entry-sub">iOS Developer / Mentor &bull; Full-time &bull; Argentina (Remote)</div>
+            <div class="entry-desc">Guided the mobile team while building the foundation of a fintech application.</div>
+            <ul>
+                <li>Evaluated new hires and drove retention strategy for the mobile team</li>
+                <li>Implemented the module to request and validate digital and physical cards</li>
+            </ul>
+        </div>
+
+        <!-- Altruas / Mantis Innovation -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Altruas (for Mantis Innovation)</span>
+                <span class="right">Jun 2023 &ndash; Oct 2023</span>
+            </div>
+            <div class="entry-sub">Staff Software Engineer &bull; Contract &bull; Argentina (Remote)</div>
+            <ul>
+                <li>Implemented data synchronization between the mobile application and server for building roof analysis</li>
+            </ul>
+        </div>
+
+        <!-- Blue Trail / Bright.ai -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Blue Trail Software (for Bright.ai)</span>
+                <span class="right">Feb 2021 &ndash; Jun 2023</span>
+            </div>
+            <div class="entry-sub">iOS Lead Engineer &bull; Full-time &bull; Argentina (Remote)</div>
+            <div class="entry-desc">Led development of solutions to control custom hardware; developed an SDK using ARKit, Metal, and Google ML Kit to detect driver drowsiness.</div>
+            <ul>
+                <li>Developed a drowsiness detection SDK for Renault Group, using ARKit, Metal, and Google ML Kit</li>
+                <li>Developed a mobile application to control a swimming pool measuring system for Bright.ai</li>
+                <li>Collaborated with cross-functional teams to implement innovative technologies for real-time video processing</li>
+            </ul>
+        </div>
+
+        <!-- BlockFi -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">BlockFi</span>
+                <span class="right">Aug 2020 &ndash; Feb 2021</span>
+            </div>
+            <div class="entry-sub">iOS Developer &bull; Contract &bull; Argentina (Remote)</div>
+            <div class="entry-desc">Led the migration from React Native to native Swift/UIKit for the cryptocurrency trading application</div>
+        </div>
+
+        <!-- Blue Trail Software -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Blue Trail Software</span>
+                <span class="right">Nov 2017 &ndash; May 2020</span>
+            </div>
+            <div class="entry-sub">iOS Lead Engineer &bull; Full-time &bull; Buenos Aires, Argentina</div>
+            <ul>
+                <li>Managed a team of 4 engineers; refactored the Sharetec codebase enabling a near 50% increase in experimental feature delivery</li>
+                <li>Developed a white-label banking app adopted by nearly 100 credit unions, originally designed for 5</li>
+                <li>Developed for clients across financial, health, and fitness industries (SmartPlate, Legion, Sharetec)</li>
+                <li>Proposed and formalized CI processes; created a shared components library for all future projects</li>
+                <li>Managed Buenos Aires office operations</li>
+                <li>Reduced recruitment process time by 20% by introducing a written technical evaluation</li>
+            </ul>
+        </div>
+
+        <!-- Globant -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Globant</span>
+                <span class="right">Aug 2017 &ndash; Nov 2017</span>
+            </div>
+            <div class="entry-sub">Senior iOS Engineer &bull; Full-time &bull; Argentina (Hybrid)</div>
+            <ul>
+                <li>Developed the native iOS version of a previously hybrid real estate application (Century 21)</li>
+            </ul>
+        </div>
+
+        <!-- Overactive -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Overactive Inc.</span>
+                <span class="right">Jul 2016 &ndash; Jul 2017</span>
+            </div>
+            <div class="entry-sub">Senior iOS Engineer &bull; Full-time &bull; Argentina &amp; Uruguay (On site)</div>
+            <ul>
+                <li>Developed an accessible health insurance app for senior citizens and people with disabilities (ADA compliance)</li>
+                <li>Rewrote a payment processor app enabling EMV card reader connectivity in Central America</li>
+            </ul>
+        </div>
+
+        <!-- Tradehelm -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Tradehelm Inc.</span>
+                <span class="right">Mar 2016 &ndash; Jun 2016</span>
+            </div>
+            <div class="entry-sub">Senior iOS Engineer &bull; Full-time &bull; Argentina &amp; USA (On site)</div>
+            <ul>
+                <li>Maintained the main product for a client in the U.S. financial sector (CME)</li>
+                <li>Developed a VR application using Unity3D for a trade expo</li>
+            </ul>
+        </div>
+
+        <!-- VMBC Labs -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">VMBC Labs</span>
+                <span class="right">Mar 2014 &ndash; Mar 2016</span>
+            </div>
+            <div class="entry-sub">Senior iOS Engineer &bull; Full-time &bull; Argentina (On site)</div>
+            <ul>
+                <li>Implemented features for AMC Theaters and Payless ShoeStore applications</li>
+                <li>Designed and built prototypes including Apple Wallet integration, iBeacons, and social sign-in</li>
+            </ul>
+        </div>
+
+        <!-- Etermax -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Etermax</span>
+                <span class="right">Sep 2012 &ndash; Feb 2014</span>
+            </div>
+            <div class="entry-sub">Senior iOS Engineer &bull; Full-time &bull; Argentina (On site)</div>
+            <ul>
+                <li>Core team member for Trivia Crack (Preguntados) and Aworded (Apalabrados), reaching millions of users</li>
+                <li>Developed an internal C# tool to automate game translations</li>
+            </ul>
+        </div>
+
+        <!-- SGN -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">SGN</span>
+                <span class="right">Mar 2014 &ndash; Mar 2016</span>
+            </div>
+            <div class="entry-sub">Senior iOS Engineer &bull; Full-time &bull; Argentina (On site)</div>
+            <ul>
+                <li>Developed a visual level-tuning tool and tile map editor for an in-house engine</li>
+                <li>Implemented an A/B testing module used across multiple company games</li>
+            </ul>
+        </div>
+
+        <!-- Band of Coders -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Band of Coders</span>
+                <span class="right">May 2010 &ndash; Dec 2011</span>
+            </div>
+            <div class="entry-sub">Senior Software Engineer &bull; Full-time &bull; Argentina (On site)</div>
+            <ul>
+                <li>Created a tool enabling developers to edit UI without artist assistance, significantly reducing workload</li>
+                <li>Game development using C# and Unity3D (Tailtowns)</li>
+            </ul>
+        </div>
+
+        <!-- Appliware -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Appliware (Electrodinámica SA)</span>
+                <span class="right">Feb 2006 &ndash; Apr 2010</span>
+            </div>
+            <div class="entry-sub">Junior to Semi-Senior Software Developer &bull; Full-time &bull; Argentina (On site)</div>
+            <ul>
+                <li>Developed a document organization system and a low-code tool enabling business analysts to create full systems</li>
+                <li>Designed a plugin module for automated installation status notifications</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== EDUCATION ==================== -->
+    <div class="section">
+        <div class="section-title">Education</div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Universidad de Buenos Aires &mdash; Facultad de Ciencias Exactas y Naturales</span>
+                <span class="right">Mar 2000 &ndash; Mar 2006</span>
+            </div>
+            <div class="entry-sub">B.S. in Computer Science (4 of 5 years completed) &bull; Average: 8.0 / 10</div>
+        </div>
+    </div>
+
+    <!-- ==================== SKILLS ==================== -->
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="entry-desc">Swift, UIKit, SwiftUI, JSON, RESTful Web Services, ARKit, ML Kit, Metal, CoreData, SwiftData, Realm, SQLite, Bash / Zsh, Objective-C, JavaScript, AppleScript, C#, C / C++, Visual Basic, Assembler, Git, SVN, Jira, CocoaPods, SPM, XML</div>
+    </div>
+
+    <!-- ==================== SELECTED PROJECTS ==================== -->
+    <div class="section">
+        <div class="section-title">Selected Projects</div>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <h3>Amex Travel</h3>
+                <div class="project-meta">American Express</div>
+                <div class="project-meta">https://apps.apple.com/us/app/amex-travel/id6742465779</div>
+            </div>
+
+            <div class="project-card">
+                <h3>Venmo</h3>
+                <div class="project-meta">Venmo</div>
+                <div class="project-meta">https://apps.apple.com/us/app/venmo/id568027235</div>
+            </div>
+
+            <div class="project-card">
+                <h3>Drowsiness Detection SDK</h3>
+                <div class="project-meta">Blue Trail Software &bull; Renault Group</div>
+            </div>
+
+            <div class="project-card">
+                <h3>CSC Go!</h3>
+                <div class="project-meta">Blue Trail Software &bull; Bright.ai + CSC</div>
+                <div class="project-meta">https://apps.apple.com/us/app/csc-go/id1552572916</div>
+            </div>
+
+            <div class="project-card">
+                <h3>Legion Workforce Engagement</h3>
+                <div class="project-meta">Blue Trail Software &bull; Legion</div>
+                <div class="project-meta">https://itunes.apple.com/us/app/legion-workforce-engagement/id1176397649</div>
+            </div>
+
+            <div class="project-card">
+                <h3>Sharetec &mdash; Mobile Banking</h3>
+                <div class="project-meta">Blue Trail Software &bull; Sharetec</div>
+                <div class="project-meta">https://apps.apple.com/us/app/sharetec-mobile-2-0/id1476859726</div>
+            </div>
+
+            <div class="project-card">
+                <h3>Trivia Crack</h3>
+                <div class="project-meta">Etermax</div>
+                <div class="project-meta">https://apps.apple.com/us/app/trivia-crack/id651510680</div>
+            </div>
+
+            <div class="project-card">
+                <h3>AMC Theaters</h3>
+                <div class="project-meta">VMBC Labs &bull; AMC</div>
+                <div class="project-meta">https://apps.apple.com/us/app/amc-theatres-movies-more/id509199715</div>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+    <!-- ==================== CERTIFICATIONS ==================== -->
+    <div class="section">
+        <div class="section-title">Certifications &amp; Courses</div>
+        <ul class="cert-list">
+            <li>EF Set English Certification &mdash; C2 (Proficient)</li>
+            <li>App Design and Development for iOS &mdash; Coursera</li>
+            <li>Best Practices for iOS User Interface Design &mdash; Coursera</li>
+            <li>Foundations of Objective-C App Development &mdash; Coursera</li>
+            <li>Introduction to Swift Programming &mdash; Coursera</li>
+            <li>iOS App Development Basics &mdash; Coursera</li>
+            <li>The Bits and Bytes of Computer Networking &mdash; Google / Coursera</li>
+            <li>Technical Support Fundamentals &mdash; Coursera</li>
+            <li>Fundamentals of Project Planning and Management &mdash; Coursera</li>
+            <li>Artificial Intelligence and Application Security &mdash; LinkedIn Learning</li>
+            <li>Career Essentials in Cybersecurity &mdash; Microsoft / LinkedIn Learning</li>
+            <li>Communicating with Diplomacy and Tact &mdash; LinkedIn Learning</li>
+            <li>JavaScript as a Second Language &mdash; LinkedIn Learning</li>
+            <li>Understanding HIPAA Compliance &mdash; Udemy</li>
+            <li>Arquitectura Software Moderna: DDD, Eventos, Microservicios &mdash; Udemy</li>
+            <li>Be a Great Mentor: A Practical Guide to Mentorship &mdash; Udemy</li>
+            <li>FastAPI &mdash; The Complete Course 2025 &mdash; Udemy</li>
+            <li>How to Manage &amp; Influence Your Virtual Team &mdash; Udemy</li>
+            <li>The Complete Python Bootcamp: Zero to Hero &mdash; Udemy</li>
+            <li>International Cyberconflicts &mdash; Coursera</li>
+            <li>The Key to Good Communication: Your Audience &mdash; LinkedIn Learning</li>
+        </ul>
+    </div>
+
+    <!-- ==================== LANGUAGES ==================== -->
+    <div class="section">
+        <div class="section-title">Languages</div>
+        <div class="lang-row"><span>Spanish &mdash; Native</span></div>
+        <div class="lang-row"><span>English &mdash; C2 Proficient</span></div>
+    </div>
+
+    <!-- ==================== EXTRACURRICULAR ==================== -->
+    <div class="section">
+        <div class="section-title">Additional Activities</div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Centro Cultural Osvaldo Bayer &mdash; Tech for Kids</span>
+                <span class="right">Apr 2001 &ndash; Jun 2003</span>
+            </div>
+            <div class="entry-sub">Teacher</div>
+            <ul>
+                <li>Coached and taught computing, physics, and mathematics in a low-income neighborhood</li>
+            </ul>
+        </div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="left">Instituto Privado Schönthal &mdash; Regional Computer Science, Mathematics &amp; Logic Competition Team</span>
+                <span class="right">Mar 1994 &ndash; Dec 1997</span>
+            </div>
+            <div class="entry-sub">Member</div>
+            <ul>
+                <li>Participated in local and regional academic tournaments</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
